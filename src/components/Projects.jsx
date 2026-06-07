@@ -20,7 +20,7 @@ import resume1 from "../assets/resume1.png"
 import resume2 from "../assets/resume2.png"
 import resume3 from "../assets/resume3.png"
 
-function Projects() {
+function Projects(){
 
 const [selected,setSelected]=useState(null)
 
@@ -40,7 +40,9 @@ desc:
 "AI healthcare diagnosis system capable of predicting multiple diseases using Machine Learning and Deep Learning models.",
 
 tech:
-"Python • ML • Deep Learning • Flask"
+"Python • ML • Deep Learning • Flask",
+
+github:"#"
 
 },
 
@@ -58,7 +60,9 @@ desc:
 "Built fraud detection models using Random Forest and XGBoost for detecting suspicious financial transactions.",
 
 tech:
-"Python • Random Forest • XGBoost"
+"Python • Random Forest • XGBoost",
+
+github:"https://github.com/123heena/Fraud-detection"
 
 },
 
@@ -76,7 +80,9 @@ desc:
 "NLP based resume screening system for resume ranking, candidate filtering and matching resumes with job descriptions.",
 
 tech:
-"Python • NLP • TF-IDF • SpaCy"
+"Python • NLP • TF-IDF • SpaCy",
+
+github:"https://github.com/123heena/AI-Powered-Resume-Scanner"
 
 },
 
@@ -94,7 +100,9 @@ desc:
 "Real time face detection and image capture using OpenCV webcam integration.",
 
 tech:
-"OpenCV • Computer Vision"
+"OpenCV • Computer Vision",
+
+github:"https://github.com/123heena/Face-Recognition-app"
 
 }
 
@@ -115,7 +123,7 @@ initial={{opacity:0,y:-40}}
 
 whileInView={{opacity:1,y:0}}
 
-transition={{duration:0.8}}
+transition={{duration:.8}}
 
 className="text-5xl font-bold"
 
@@ -125,21 +133,11 @@ Featured Projects
 
 </motion.h2>
 
-<motion.p
-
-initial={{opacity:0}}
-
-whileInView={{opacity:1}}
-
-transition={{delay:0.3}}
-
-className="mt-4 text-gray-600"
-
->
+<p className="mt-4 text-gray-600">
 
 AI • Machine Learning • Data Analytics Projects
 
-</motion.p>
+</p>
 
 
 <div className="grid md:grid-cols-2 gap-10 mt-14">
@@ -152,17 +150,17 @@ projects.map((project,index)=>(
 
 key={project.name}
 
-initial={{opacity:0,y:80}}
+initial={{opacity:0,y:60}}
 
 whileInView={{opacity:1,y:0}}
 
-transition={{duration:0.6,delay:index*0.1}}
+transition={{delay:index*.1}}
 
 whileHover={{
 
 scale:1.03,
 
-y:-10
+y:-8
 
 }}
 
@@ -192,11 +190,7 @@ className="w-full h-64 object-cover"
 
 </p>
 
-<motion.button
-
-whileHover={{scale:1.05}}
-
-whileTap={{scale:0.95}}
+<button
 
 onClick={()=>setSelected(project)}
 
@@ -206,7 +200,7 @@ className="mt-6 bg-purple-600 text-white px-6 py-3 rounded-full"
 
 View Details
 
-</motion.button>
+</button>
 
 </div>
 
@@ -217,7 +211,6 @@ View Details
 }
 
 </div>
-
 
 
 <AnimatePresence>
@@ -269,13 +262,13 @@ className="absolute right-6 top-4 text-4xl"
 
 </h2>
 
-<p className="mt-5 text-gray-700">
+<p className="mt-5">
 
 {selected.desc}
 
 </p>
 
-<p className="mt-6 font-bold">
+<p className="mt-5 font-semibold">
 
 Tech Stack:
 
@@ -288,6 +281,21 @@ Tech Stack:
 </p>
 
 
+<a
+
+href={selected.github}
+
+target="_blank"
+
+className="inline-block mt-6 bg-black text-white px-6 py-3 rounded-xl"
+
+>
+
+View GitHub Repo
+
+</a>
+
+
 <h3 className="text-2xl font-bold mt-10">
 
 Project Screenshots
@@ -295,7 +303,7 @@ Project Screenshots
 </h3>
 
 
-<div className="grid md:grid-cols-2 gap-6 mt-8">
+<div className="grid md:grid-cols-2 gap-6 mt-6">
 
 {
 
@@ -309,9 +317,11 @@ src={img}
 
 whileHover={{scale:1.03}}
 
-className="rounded-2xl shadow-lg w-full"
+className="rounded-2xl shadow-lg"
 
-/>
+>
+
+</motion.img>
 
 ))
 
@@ -329,7 +339,6 @@ className="rounded-2xl shadow-lg w-full"
 }
 
 </AnimatePresence>
-
 
 </div>
 
